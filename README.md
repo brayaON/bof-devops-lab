@@ -6,7 +6,7 @@ Solo utiliza la biblioteca estándar. Sin paquetes externos, Node, Docker ni AWS
 1. Instala una versión estable y soportada de Go: https://go.dev/doc/install
    El módulo requiere como mínimo Go 1.22; usa una versión soportada actual, no instales una antigua solo por ese mínimo.
 2. Instala Git y VS Code. La extensión Go es opcional para este ejercicio.
-3. Extrae el ZIP. Abre la carpeta que contiene go.mod en VS Code.
+3. Crea y clona tu fork siguiendo la sección "Primer cambio con GitHub". Abre en VS Code la carpeta que contiene go.mod.
 4. Abre una nueva terminal PowerShell:
    ```powershell
    go version
@@ -41,27 +41,42 @@ go vet ./...
 go fmt ./...
 ```
 
-## Primer cambio con Git
+## Primer cambio con GitHub
+
+Primero crea una copia del laboratorio en tu cuenta:
+
+1. Inicia sesión en GitHub y abre https://github.com/brayaON/bof-devops-lab.
+2. Selecciona **Fork** y después **Create fork**. Conserva el nombre `bof-devops-lab`.
+3. GitHub creará `https://github.com/TU_USUARIO/bof-devops-lab`. Esa será tu copia para publicar cambios.
+
+Reemplaza `TU_USUARIO` por tu usuario de GitHub y clona tu fork:
+
 ```powershell
-git init -b main
-git add .
-git commit -m "Initial SupportDesk application"
+git clone https://github.com/TU_USUARIO/bof-devops-lab.git
+cd bof-devops-lab
+git remote add upstream https://github.com/brayaON/bof-devops-lab.git
+git remote -v
 git switch -c feat/filter-status
 ```
+
+`origin` apunta a tu fork y `upstream` al laboratorio original. No trabajes directamente sobre `main`.
 Si Git solicita tu identidad, configura user.name y user.email con tus datos.
-Crea un repositorio vacío en tu GitHub. Luego, reemplazando TU_USUARIO:
-```powershell
-git remote add origin https://github.com/TU_USUARIO/supportdesk-lab.git
-git push -u origin main
-```
+
 Tras implementar y validar el ejercicio:
+
 ```powershell
 git diff
 git add main.go main_test.go
 git commit -m "Add ticket status filter"
 git push -u origin feat/filter-status
 ```
-Abre un PR de feat/filter-status hacia main en GitHub. Incluye objetivo, cambio y pruebas.
+
+En GitHub, abre un pull request con esta dirección:
+
+- Origen: `TU_USUARIO/bof-devops-lab`, rama `feat/filter-status`.
+- Destino: `brayaON/bof-devops-lab`, rama `main`.
+
+Incluye en el PR el objetivo, el cambio realizado y las pruebas ejecutadas.
 La autenticación con GitHub se realiza con el mecanismo que tengas configurado; no pongas tokens en el código.
 
 ## Archivos
