@@ -1,0 +1,7 @@
+*.exe
+*.test
+coverage.out
+.env
+.DS_Store
+docs/GUIA_SESION_01.md
+bin/
