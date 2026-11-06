@@ -1,7 +1,21 @@
+# Sistema
+.DS_Store
+.env
+
+# Go (sesión 1 en adelante)
 *.exe
 *.test
 coverage.out
-.env
-.DS_Store
-docs/GUIA_SESION_01.md
 bin/
+
+# Terraform (sesión 2 en adelante)
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+tfplan
+crash.log
+
+# Guías privadas del facilitador
+**/GUIA_SESION_*.md
