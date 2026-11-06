@@ -1,0 +1,4 @@
+# Copiar a terraform.tfvars y ajustar
+owner             = "tu-nombre"
+region            = "us-east-2"
+allowed_http_cidr = "203.0.113.10/32" # tu IP pública: curl -s https://checkip.amazonaws.com
