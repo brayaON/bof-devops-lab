@@ -32,10 +32,3 @@ terraform plan -out=tfplan
 ```
 Lee el plan antes de aplicar: cuántos recursos se crean, qué queda expuesto a Internet
 y qué permisos IAM se otorgan. Aplica solo si coincide con lo esperado y destruye al terminar.
-
-## Entregable
-Un PR hacia `main` con los cambios en `sesion-02/infra/` y en la descripción:
-- Resumen del plan (línea `Plan: N to add...`) y la URL o salida que confirma que funcionó.
-- Justificación de permisos (qué otorga el rol y por qué), conectividad (qué puertos y desde dónde) y costo estimado por hora.
-- Qué propuso la IA, qué corregiste y cómo lo comprobaste.
-- Confirmación de que ejecutaste `terraform destroy`.

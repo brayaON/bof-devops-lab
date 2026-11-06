@@ -19,7 +19,7 @@ y, cuando aplica, el código de la demo. El trabajo del participante se entrega 
 ## Estructura de cada sesión
 ```
 sesion-NN/
-├── EJERCICIO.md   ← objetivo, criterios de aceptación y entregable
+├── EJERCICIO.md   ← objetivo y criterios de aceptación
 ├── AGENTS.md      ← instrucciones para el asistente o agente de IA
 ├── demo/          ← código mostrado en la sesión, si lo hubo
 └── ...            ← código del participante (por ejemplo infra/)
