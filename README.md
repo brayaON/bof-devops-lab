@@ -7,8 +7,8 @@ y, cuando aplica, el código de la demo. El trabajo del participante se entrega 
 | # | Tema | Carpeta | Estado |
 |---|---|---|---|
 | 01 | Fundamentos DevOps, Git e IA | [sesion-01](sesion-01/) | ✅ |
-| 02 | Infraestructura con Terraform | [sesion-02](sesion-02/) | 🟡 En curso |
-| 03 | IaC para trabajar en equipo | — | ⏳ |
+| 02 | Infraestructura con Terraform | [sesion-02](sesion-02/) | ✅ |
+| 03 | IaC para trabajar en equipo | [sesion-03](sesion-03/) | 🟡 En curso |
 | 04 | Contenedores | — | ⏳ |
 | 05 | Despliegue en AWS | — | ⏳ |
 | 06 | CI/CD y flujos con agentes de IA | — | ⏳ |
@@ -35,7 +35,7 @@ git merge upstream/main
 git push origin main
 ```
 
-Después crea una rama para el ejercicio de la sesión, por ejemplo `git switch -c feat/sesion-02-infra`.
+Después crea una rama para el ejercicio de la sesión, por ejemplo `git switch -c feat/sesion-03-drift`.
 
 ## Reglas del laboratorio
 - Trabaja con permisos mínimos y datos ficticios; no compartas credenciales ni información de tu empresa con la IA.
