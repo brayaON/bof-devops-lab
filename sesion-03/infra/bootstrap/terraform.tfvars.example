@@ -1,0 +1,2 @@
+# Copiar a terraform.tfvars y ajustar
+owner = "tu-nombre" # minúsculas y guiones; forma parte del nombre del bucket
