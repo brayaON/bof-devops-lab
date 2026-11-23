@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SupportDesk | BOF Labs</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#193044;font:16px system-ui,sans-serif}
+main{max-width:960px;margin:60px auto;padding:0 24px}header{border-bottom:1px solid #ced8df;padding-bottom:25px}
+small{color:#087e83;font-weight:700;letter-spacing:.1em}h1{font-size:40px;margin:12px 0}p{color:#526575;line-height:1.6}
+button{border:0;border-radius:6px;background:#087e83;color:white;padding:12px 18px;cursor:pointer;font:inherit}
+button:disabled{opacity:.5}table{width:100%;border-collapse:collapse;background:white;margin-top:20px}
+th,td{text-align:left;padding:16px;border-bottom:1px solid #e4e9ed}th{font-size:13px;color:#526575}
+.wrap{overflow-x:auto}#message{min-height:24px}footer{margin-top:32px;font-size:13px;color:#526575}
+a{color:#087e83}
+</style>
+</head>
+<body><main>
+<header><small>BOF LABS / LABORATORIO 01</small><h1>SupportDesk</h1>
+<p>Tickets de soporte ficticios. Esta aplicación será la base del proyecto de DevOps e IA.</p>
+<button id="reload" type="button">Actualizar tickets</button> <a href="/health">Ver salud de la API</a>
+</header>
+<p id="message" role="status" aria-live="polite"></p>
+<div class="wrap"><table><thead><tr><th>ID</th><th>Ticket</th><th>Estado</th><th>Prioridad</th></tr></thead><tbody id="tickets"></tbody></table></div>
+<footer>BOF Labs | AI Infrastructure • Cloud • DevOps<br>Datos de demostración · API: <a href="/api/tickets">/api/tickets</a></footer>
+</main>
+<script>
+const button=document.querySelector('#reload');
+const message=document.querySelector('#message');
+const body=document.querySelector('#tickets');
+async function loadTickets(){
+ button.disabled=true;message.textContent='Cargando…';
+ try{
+  const response=await fetch('/api/tickets');
+  if(!response.ok) throw new Error('HTTP '+response.status);
+  const tickets=await response.json();
+  body.replaceChildren();
+  for(const ticket of tickets){
+   const row=document.createElement('tr');
+   for(const value of [ticket.id,ticket.title,ticket.status,ticket.priority]){
+    const cell=document.createElement('td');cell.textContent=value;row.appendChild(cell);
+   }
+   body.appendChild(row);
+  }
+  message.textContent=tickets.length+' tickets cargados.';
+ }catch(error){
+  body.replaceChildren();message.textContent='No se pudieron cargar los tickets. Comprueba que la API esté funcionando. '+error.message;
+ }finally{button.disabled=false;}
+}
+button.addEventListener('click',loadTickets);
+loadTickets();
+</script></body></html>
